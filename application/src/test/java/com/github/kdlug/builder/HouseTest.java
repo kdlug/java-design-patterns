@@ -8,7 +8,22 @@ import org.springframework.boot.test.context.SpringBootTest;
 class HouseTest extends Application {
     @Test
     public void createHouse() {
-        House house1 = new House("walls", "floors", "rooms", "windows", "doors", "garage");
-        House house2 = new House("walls", "floors", "roof");
+        // Create an instances of concrete builders
+        SmallHouseBuilder smallHouseBuilder = new SmallHouseBuilder();
+        BigHouseBuilder bigHouseBuilder = new BigHouseBuilder();
+
+        // Create director and build builder
+        HouseDirector smallHouseDirector = new HouseDirector(smallHouseBuilder);
+        smallHouseDirector.buildHouse();
+
+        HouseDirector bigHouseDirector = new HouseDirector(bigHouseBuilder);
+        bigHouseDirector.buildHouse();
+
+        // Create instances of houses
+        House smallHouse = smallHouseDirector.getHouse();
+        House bigHouse = bigHouseDirector.getHouse();
+
+        System.out.println(smallHouse);
+        System.out.println(bigHouse);
     }
 }

@@ -1,6 +1,9 @@
 package com.github.kdlug.builder;
 
-//  A lot of fields and multiple constructors. There is possibility to make a mistake.
+// 1. Remove constructors
+// 2. Create Interface HouseBuilder
+// 3. Add director
+// 4. Builder implementation
 public class House {
     private String walls;
     private String floors;
@@ -9,33 +12,6 @@ public class House {
     private String windows;
     private String doors;
     private String garage;
-
-    // Constructor with all fields
-    public House(String walls, String floors, String rooms, String roof, String windows, String doors, String garage) {
-        this.walls = walls;
-        this.floors = floors;
-        this.rooms = rooms;
-        this.roof = roof;
-        this.windows = windows;
-        this.doors = doors;
-        this.garage = garage;
-    }
-
-    // Other constructors
-    public House(String walls, String floors, String roof) {
-        this.walls = walls;
-        this.floors = floors;
-        this.roof = roof;
-    }
-
-    public House(String walls, String floors, String rooms, String roof, String windows, String doors) {
-        this.walls = walls;
-        this.floors = floors;
-        this.rooms = rooms;
-        this.roof = roof;
-        this.windows = windows;
-        this.doors = doors;
-    }
 
     public String getWalls() {
         return walls;
