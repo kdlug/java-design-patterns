@@ -1,6 +1,13 @@
 package com.github.kdlug.builder;
 
-//  A lot of fields and multiple constructors. There is possibility to make a mistake.
+// 1. Remove all constructors
+// 2. Remove all setters
+// 3. Add nested static Builder class
+// 4. Copy all fields from parent class
+// 5. Add public method build which return an instance of parent class
+// 6, Add private constructor to House class (prevents to create object directly, it can be only created via Builder)
+// 7. Implements public methods of House builder which returns this (for chaining)
+
 public class House {
     private String walls;
     private String floors;
@@ -10,87 +17,42 @@ public class House {
     private String doors;
     private String garage;
 
-    // Constructor with all fields
-    public House(String walls, String floors, String rooms, String roof, String windows, String doors, String garage) {
-        this.walls = walls;
-        this.floors = floors;
-        this.rooms = rooms;
-        this.roof = roof;
-        this.windows = windows;
-        this.doors = doors;
-        this.garage = garage;
-    }
-
-    // Other constructors
-    public House(String walls, String floors, String roof) {
-        this.walls = walls;
-        this.floors = floors;
-        this.roof = roof;
-    }
-
-    public House(String walls, String floors, String rooms, String roof, String windows, String doors) {
-        this.walls = walls;
-        this.floors = floors;
-        this.rooms = rooms;
-        this.roof = roof;
-        this.windows = windows;
-        this.doors = doors;
+    private House(HouseBuilder builder) {
+        this.walls = builder.walls;
+        this.floors =  builder.floors;
+        this.rooms =  builder.rooms;
+        this.roof =  builder.roof;
+        this.windows =  builder.windows;
+        this.doors =  builder.doors;
+        this.garage =  builder.garage;
     }
 
     public String getWalls() {
         return walls;
     }
 
-    public void setWalls(String walls) {
-        this.walls = walls;
-    }
-
     public String getFloors() {
         return floors;
-    }
-
-    public void setFloors(String floors) {
-        this.floors = floors;
     }
 
     public String getRooms() {
         return rooms;
     }
 
-    public void setRooms(String rooms) {
-        this.rooms = rooms;
-    }
-
     public String getRoof() {
         return roof;
-    }
-
-    public void setRoof(String roof) {
-        this.roof = roof;
     }
 
     public String getWindows() {
         return windows;
     }
 
-    public void setWindows(String windows) {
-        this.windows = windows;
-    }
-
     public String getDoors() {
         return doors;
     }
 
-    public void setDoors(String doors) {
-        this.doors = doors;
-    }
-
     public String getGarage() {
         return garage;
-    }
-
-    public void setGarage(String garage) {
-        this.garage = garage;
     }
 
     @Override
@@ -104,5 +66,54 @@ public class House {
                 ", doors='" + doors + '\'' +
                 ", garage='" + garage + '\'' +
                 '}';
+    }
+
+    public static class HouseBuilder {
+        private String walls;
+        private String floors;
+        private String rooms;
+        private String roof;
+        private String windows;
+        private String doors;
+        private String garage;
+
+        public House build() {
+            return new House(this);
+        }
+
+        public HouseBuilder buildWalls(String walls) {
+            this.walls = walls;
+            return this;
+        }
+
+        public HouseBuilder buildFloors(String floors) {
+            this.floors = floors;
+            return this;
+        }
+
+        public HouseBuilder buildRooms(String rooms) {
+            this.rooms = rooms;
+            return this;
+        }
+
+        public HouseBuilder buildRoof(String roof) {
+            this.roof = roof;
+            return this;
+        }
+
+        public HouseBuilder buildWindows(String windows) {
+            this.windows = windows;
+            return this;
+        }
+
+        public HouseBuilder buildDoors(String doors) {
+            this.doors = doors;
+            return this;
+        }
+
+        public HouseBuilder buildGarage(String garage) {
+            this.garage = garage;
+            return this;
+        }
     }
 }
