@@ -10,10 +10,12 @@ import org.springframework.test.context.junit4.SpringRunner;
 public class ChefTest {
     @Test
     public void chefTest() {
-        // New order pasta
+        // New order phard boiled egg
         Chef chef = new Chef("Erik");
+        chef.setEggCooker(new HardBoiledEggCooker());
         chef.cook();
-        // New order pizza
+        // New order soft boiled egg
+        chef.setEggCooker(new SoftBoiledEggCooker());
         chef.cook();
     }
 }
