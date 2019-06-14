@@ -55,5 +55,25 @@ It's similar to the abstract factory but builder pattern creates an object step 
 2. Create concrete implementations
 3. In context class add interface field (polymorphysm)
 
+## Factory
+
+Służy do uproszczenia tworzenia nowych obiektów.
+
+### Factory method
+
+Components:
+
+- Abstract factory with abstract method `create(type)` which returns abstract class of Product
+- Concrete factory with `create(type)` method implementation which creates concrete products but still returns abstract Product type
+- Abstract Product class
+- Concrete implementations of Product
+
+Factories are usual singletons.
+To restrict type, we can use Enum field.
+
+To protect objects to be created from factory, we have to do the following:
+
+- Add protected constructor to Product abstract class. it will be accessed only by extending classes - concrete implementations of Product.
+- Add default consttructors to concrete implementations of Product. Default constructor means that objects can be created only within the same package (by factory in our case).
 
 
