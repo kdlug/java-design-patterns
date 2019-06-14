@@ -1,13 +1,11 @@
 package com.github.kdlug.factory;
 
-public class UnitFactory extends Factory {
+public class RedInfantryUnitFactory extends InfantryFactory {
     @Override
-    public Unit createUnit(UnitType type) {
+    public InfantryUnit createUnit(UnitType type) {
         switch (type) {
-            case TANK:
-                return new Tank(3, 0,50);
             case RIFLEMAN:
-                return new Rifleman(100,0,200);
+                return new Rifleman(20,0,6);
             default:
                 throw new UnsupportedOperationException("No such unit type");
         }

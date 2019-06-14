@@ -7,16 +7,16 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class FactoryTest {
+public class InfantryFactoryTest {
     @Test
     public void createObjects() {
-        Factory factory = new UnitFactory();
+        InfantryFactory infantryFactory = new RedInfantryUnitFactory();
 
-        Unit tank = factory.createUnit(UnitType.TANK);
-        Unit inframan = factory.createUnit(UnitType.RIFLEMAN);
+        InfantryUnit tank = infantryFactory.createUnit(UnitType.TANK);
+        InfantryUnit inframan = infantryFactory.createUnit(UnitType.RIFLEMAN);
 
         // we are under the same package in tests so this is still possible
         // but f.ex. from main it won't be possible
-        Unit customType = new Rifleman(100,0,200);
+        InfantryUnit customType = new Rifleman(100,0,200);
     }
 }

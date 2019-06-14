@@ -1,6 +1,6 @@
 package com.github.kdlug.factory;
 
-public abstract class Unit {
+public abstract class InfantryUnit {
     /* health points */
     private int hp;
     /* experience level */
@@ -8,9 +8,9 @@ public abstract class Unit {
     /* damage */
     private int dmg;
 
-    // protected will disable possiblity to create Unit objects outside factory
-    // Unit objects can be created only using factory
-    protected Unit(int hp, int exp, int dmg) {
+    // protected will disable possiblity to create InfantryUnit objects outside factory
+    // InfantryUnit objects can be created only using factory
+    protected InfantryUnit(int hp, int exp, int dmg) {
         this.hp = hp;
         this.exp = exp;
         this.dmg = dmg;
