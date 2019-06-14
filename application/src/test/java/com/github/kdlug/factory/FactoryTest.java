@@ -10,7 +10,13 @@ import org.springframework.test.context.junit4.SpringRunner;
 public class FactoryTest {
     @Test
     public void createObjects() {
-        Unit tank = new Tank(3, 0,50);
-        Unit infantryman = new Rifleman(100,0,200);
+        Factory factory = new UnitFactory();
+
+        Unit tank = factory.createUnit(UnitType.TANK);
+        Unit inframan = factory.createUnit(UnitType.RIFLEMAN);
+
+        // we are under the same package in tests so this is still possible
+        // but f.ex. from main it won't be possible
+        Unit customType = new Rifleman(100,0,200);
     }
 }

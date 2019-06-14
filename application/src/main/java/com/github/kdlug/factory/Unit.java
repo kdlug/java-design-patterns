@@ -8,7 +8,9 @@ public abstract class Unit {
     /* damage */
     private int dmg;
 
-    public Unit(int hp, int exp, int dmg) {
+    // protected will disable possiblity to create Unit objects outside factory
+    // Unit objects can be created only using factory
+    protected Unit(int hp, int exp, int dmg) {
         this.hp = hp;
         this.exp = exp;
         this.dmg = dmg;
