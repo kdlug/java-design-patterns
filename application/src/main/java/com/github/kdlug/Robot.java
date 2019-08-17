@@ -1,19 +1,19 @@
-package com.github.kdlug.command;
+package com.github.kdlug;
 
 public class Robot {
-    void turnOn() {
+    public void turnOn() {
         System.out.println("Robot enabled");
     }
 
-    void cut() {
+    public void cut() {
         System.out.println("Robot is cutting");
     }
 
-    void drill() {
+    public void drill() {
         System.out.println("Robot is drilling");
     }
 
-    void turnOff() {
+    public void turnOff() {
         System.out.println("Robot disabled");
     }
 }
