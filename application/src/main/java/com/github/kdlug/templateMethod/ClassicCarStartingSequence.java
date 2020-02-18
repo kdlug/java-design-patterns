@@ -1,28 +1,13 @@
 package com.github.kdlug.templateMethod;
 
-public class ClassicCarStartingSequence {
-    public void startTheCar() {
-        fastenSeatbelts();
-        startTheIgnition();
-        setTheGear();
-        go();
-    }
+public class ClassicCarStartingSequence extends CarStartingSequence{
 
-    private void go() {
-        System.out.println("Push the gas pedal");
-    }
-
-    private void setTheGear() {
+    public void setTheGear() {
         System.out.println("Choose gear");
     }
 
-    private void startTheIgnition() {
+    public void startTheIgnition() {
         System.out.println("Turn the key");
-
-    }
-
-    private void fastenSeatbelts() {
-        System.out.println("Fasten seatbelts");
     }
 }
 
